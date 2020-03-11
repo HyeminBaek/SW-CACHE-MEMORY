@@ -11,21 +11,21 @@ static int L3[200] = { 0 };
 static int RAM[500] = { 0 };
 static int HD[5000];
 
-static int L1_InfoList[5] = { 0 }; //¼±ÀÔÁ¤º¸¸¦ °ü¸®ÇÏ´Â ¹è¿­
+static int L1_InfoList[5] = { 0 }; //ì„ ìž…ì •ë³´ë¥¼ ê´€ë¦¬í•˜ëŠ” ë°°ì—´
 static int L2_InfoList[20] = { 0 };
 static int L3_InfoList[200] = { 0 };
 static int RAM_InfoList[500] = { 0 };
 
-static int hit = 0; //È÷Æ®À²
-static int num = 0; //¿¬»ê ¼öÇà È½¼ö
-static int miss = 0; //¹Ì½ºÀ²
+static int hit = 0; //ížˆíŠ¸ìœ¨
+static int num = 0; //ì—°ì‚° ìˆ˜í–‰ íšŸìˆ˜
+static int miss = 0; //ë¯¸ìŠ¤ìœ¨
 static int onlyhit = 0;
 static int onlynum = 0;
 static int onlymiss = 0;
 static int twicehit = 0;
 static int twicemiss = 0;
 
-static int R1 = 0, R2 = 0; //·¹Áö½ºÅÍ
+static int R1 = 0, R2 = 0; //ë ˆì§€ìŠ¤í„°
 
 void onlyL1_func(int a);
 void onlyHD_func(int a);
@@ -58,7 +58,7 @@ int main()
 
 	clock_t start, end;
 	double result;
-	start = clock(); //¼öÇà ½Ã°£ ÃøÁ¤ ½ÃÀÛ 
+	start = clock(); //ìˆ˜í–‰ ì‹œê°„ ì¸¡ì • ì‹œìž‘ 
 
 	for (int i = 0; i < 10000; i++)
 	{
@@ -69,21 +69,21 @@ int main()
 		L1_func(b);
 	}
 
-	end = clock(); //½Ã°£ ÃøÁ¤ ³¡ 
-	result = (double)(end - start); //½Ã°£ ÃøÁ¤ °á°ú(ms·Î ±â·ÏµÊ)
+	end = clock(); //ì‹œê°„ ì¸¡ì • ë 
+	result = (double)(end - start); //ì‹œê°„ ì¸¡ì • ê²°ê³¼(msë¡œ ê¸°ë¡ë¨)
 
-	cout << a << " + " << b << "ÀÇ ¿¬»ê" << endl;
-	cout << "ÀúÀåµÈ ·¹Áö½ºÅÍÀÇ °ªÀº " << R1 << ", " << R2 << endl;
+	cout << a << " + " << b << "ì˜ ì—°ì‚°" << endl;
+	cout << "ì €ìž¥ëœ ë ˆì§€ìŠ¤í„°ì˜ ê°’ì€ " << R1 << ", " << R2 << endl;
 	cout << endl;
 
-	cout << "L1ÀÇ »óÅÂ" << endl;
+	cout << "L1ì˜ ìƒíƒœ" << endl;
 	for (int i = 0; i < 5; i++)
 	{
 		cout << L1[i] << " ";
 	}
 	cout << endl;
 
-	cout << "\nL2ÀÇ »óÅÂ" << endl;
+	cout << "\nL2ì˜ ìƒíƒœ" << endl;
 	for (int i = 0; i < 20; i++)
 	{
 		if ((i != 0) && (i % 10 == 0))
@@ -92,7 +92,7 @@ int main()
 	}
 	cout << endl;
 
-	cout << "\nL3ÀÇ »óÅÂ" << endl;
+	cout << "\nL3ì˜ ìƒíƒœ" << endl;
 	for (int i = 0; i < 200; i++)
 	{
 		if ((i != 0) && (i % 10 == 0))
@@ -101,7 +101,7 @@ int main()
 	}
 	cout << endl;
 
-	cout << "\nRAMÀÇ »óÅÂ" << endl;
+	cout << "\nRAMì˜ ìƒíƒœ" << endl;
 	for (int i = 0; i < 500; i++)
 	{
 		if ((i != 0) && (i % 10 == 0))
@@ -110,31 +110,31 @@ int main()
 	}
 	cout << endl;
 
-	cout << "\n¿¬»ê ¼öÇà È½¼ö´Â " << num << "È¸" << endl;
-	cout << "Ä³½Ã È÷Æ® À²Àº " << hit / static_cast<double>(num) * 100 << "%" << endl;
-	cout << "Ä³½Ã ¹Ì½º À²Àº " << miss / static_cast<double>(num) * 100 << "%" << endl;
-	cout << "ÃÑ µ¥ÀÌÅÍ Á¢±Ù ½Ã°£Àº " << ((result) / CLOCKS_PER_SEC) << " ÃÊ" << endl; //ms·Î ±â·ÏµÈ result¸¦ ÃÊ·Î ¹Ù²ã Ãâ·Â
+	cout << "\nì—°ì‚° ìˆ˜í–‰ íšŸìˆ˜ëŠ” " << num << "íšŒ" << endl;
+	cout << "ìºì‹œ ížˆíŠ¸ ìœ¨ì€ " << hit / static_cast<double>(num) * 100 << "%" << endl;
+	cout << "ìºì‹œ ë¯¸ìŠ¤ ìœ¨ì€ " << miss / static_cast<double>(num) * 100 << "%" << endl;
+	cout << "ì´ ë°ì´í„° ì ‘ê·¼ ì‹œê°„ì€ " << ((result) / CLOCKS_PER_SEC) << " ì´ˆ" << endl; //msë¡œ ê¸°ë¡ëœ resultë¥¼ ì´ˆë¡œ ë°”ê¿” ì¶œë ¥
 
 	L1[5] = { 0 };
 	L2[20] = { 0 };
 	L3[200] = { 0 };
 	RAM[500] = { 0 };
 
-	L1_InfoList[5] = { 0 }; //¼±ÀÔÁ¤º¸¸¦ °ü¸®ÇÏ´Â ¹è¿­
+	L1_InfoList[5] = { 0 }; //ì„ ìž…ì •ë³´ë¥¼ ê´€ë¦¬í•˜ëŠ” ë°°ì—´
 	L2_InfoList[20] = { 0 };
 	L3_InfoList[200] = { 0 };
 	RAM_InfoList[500] = { 0 };
 
-	hit = 0; //È÷Æ®À²
-	num = 0; //¿¬»ê ¼öÇà È½¼ö
-	miss = 0; //¹Ì½ºÀ²
+	hit = 0; //ížˆíŠ¸ìœ¨
+	num = 0; //ì—°ì‚° ìˆ˜í–‰ íšŸìˆ˜
+	miss = 0; //ë¯¸ìŠ¤ìœ¨
 
 	clock_t start1, end1;
 	double result1;
-	start1 = clock(); //¼öÇà ½Ã°£ ÃøÁ¤ ½ÃÀÛ 
+	start1 = clock(); //ìˆ˜í–‰ ì‹œê°„ ì¸¡ì • ì‹œìž‘ 
 
-	cout << "\n** ¼º´ÉÃøÁ¤ -1 **" << endl;
-	cout << "\n<L1 Ä³½Ã¿ë·®ÀÇ 2¹è°¡ µÉ ¶§±îÁö ¿¬»ê ÁøÇà>" << endl;
+	cout << "\n** ì„±ëŠ¥ì¸¡ì • -1 **" << endl;
+	cout << "\n<L1 ìºì‹œìš©ëŸ‰ì˜ 2ë°°ê°€ ë  ë•Œê¹Œì§€ ì—°ì‚° ì§„í–‰>" << endl;
 	for (int i = 0; i < 10; i++)
 	{
 		a = rand() % 5001;
@@ -144,26 +144,26 @@ int main()
 		L1_func(b);
 	}
 
-	end1 = clock(); //½Ã°£ ÃøÁ¤ ³¡ 
-	result1 = (double)(end1 - start1); //½Ã°£ ÃøÁ¤ °á°ú(ms·Î ±â·ÏµÊ)
+	end1 = clock(); //ì‹œê°„ ì¸¡ì • ë 
+	result1 = (double)(end1 - start1); //ì‹œê°„ ì¸¡ì • ê²°ê³¼(msë¡œ ê¸°ë¡ë¨)
 
-	cout << "L1ÀÇ »óÅÂ" << endl;
+	cout << "L1ì˜ ìƒíƒœ" << endl;
 	for (int i = 0; i < 5; i++)
 	{
 		cout << L1[i] << " ";
 	}
 	cout << endl;
-	cout << "¿¬»ê ¼öÇà È½¼ö´Â 10È¸" << endl;
-	cout << "Ä³½Ã È÷Æ® À²Àº " << hit / static_cast<double>(num) * 100 << "%" << endl;
-	cout << "Ä³½Ã ¹Ì½º À²Àº " << miss / static_cast<double>(num) * 100 << "%" << endl;
-	cout << "µ¥ÀÌÅÍ Á¢±Ù ½Ã°£Àº " << ((result1) / CLOCKS_PER_SEC) << " ÃÊ" << endl;
+	cout << "ì—°ì‚° ìˆ˜í–‰ íšŸìˆ˜ëŠ” 10íšŒ" << endl;
+	cout << "ìºì‹œ ížˆíŠ¸ ìœ¨ì€ " << hit / static_cast<double>(num) * 100 << "%" << endl;
+	cout << "ìºì‹œ ë¯¸ìŠ¤ ìœ¨ì€ " << miss / static_cast<double>(num) * 100 << "%" << endl;
+	cout << "ë°ì´í„° ì ‘ê·¼ ì‹œê°„ì€ " << ((result1) / CLOCKS_PER_SEC) << " ì´ˆ" << endl;
 
-	cout << "\n** ¼º´ÉÃøÁ¤ -2 **" << endl;
-	cout << "\n<L1 Ä³½Ã¸¸ ÀÖÀ» ¶§ ¼º´É ÃøÁ¤>" << endl;
+	cout << "\n** ì„±ëŠ¥ì¸¡ì • -2 **" << endl;
+	cout << "\n<L1 ìºì‹œë§Œ ìžˆì„ ë•Œ ì„±ëŠ¥ ì¸¡ì •>" << endl;
 
 	clock_t start2, end2;
 	double result2;
-	start2 = clock(); //¼öÇà ½Ã°£ ÃøÁ¤ ½ÃÀÛ 
+	start2 = clock(); //ìˆ˜í–‰ ì‹œê°„ ì¸¡ì • ì‹œìž‘ 
 
 	for (int i = 0; i < 10000; i++)
 	{
@@ -174,24 +174,24 @@ int main()
 		onlyL1_func(b);
 	}
 
-	end2 = clock(); //½Ã°£ ÃøÁ¤ ³¡ 
-	result2 = (double)(end2 - start2); //½Ã°£ ÃøÁ¤ °á°ú(ms·Î ±â·ÏµÊ)
+	end2 = clock(); //ì‹œê°„ ì¸¡ì • ë 
+	result2 = (double)(end2 - start2); //ì‹œê°„ ì¸¡ì • ê²°ê³¼(msë¡œ ê¸°ë¡ë¨)
 
-	cout << "¿¬»ê ¼öÇà È½¼ö´Â " << onlynum << "È¸" << endl;
-	cout << "L1ÀÇ »óÅÂ" << endl;
+	cout << "ì—°ì‚° ìˆ˜í–‰ íšŸìˆ˜ëŠ” " << onlynum << "íšŒ" << endl;
+	cout << "L1ì˜ ìƒíƒœ" << endl;
 	for (int i = 0; i < 5; i++)
 	{
 		cout << onlyL1[i] << " ";
 	}
 	cout << endl;
-	cout << "Ä³½Ã È÷Æ® À²Àº " << onlyhit / static_cast<double>(onlynum) * 100 << "%" << endl;
-	cout << "Ä³½Ã ¹Ì½º À²Àº " << onlymiss / static_cast<double>(onlynum) * 100 << "%" << endl;
-	cout << "L1¸¸ ÀÖÀ» ¶§ÀÇ µ¥ÀÌÅÍ Á¢±Ù ½Ã°£Àº " << ((result2) / CLOCKS_PER_SEC) << " ÃÊ" << endl;
+	cout << "ìºì‹œ ížˆíŠ¸ ìœ¨ì€ " << onlyhit / static_cast<double>(onlynum) * 100 << "%" << endl;
+	cout << "ìºì‹œ ë¯¸ìŠ¤ ìœ¨ì€ " << onlymiss / static_cast<double>(onlynum) * 100 << "%" << endl;
+	cout << "L1ë§Œ ìžˆì„ ë•Œì˜ ë°ì´í„° ì ‘ê·¼ ì‹œê°„ì€ " << ((result2) / CLOCKS_PER_SEC) << " ì´ˆ" << endl;
 
-	cout << "\n<L1, L2, L3 Ä³½Ã°¡ ÀÖÀ» ¶§ ¼º´É ÃøÁ¤>" << endl;
+	cout << "\n<L1, L2, L3 ìºì‹œê°€ ìžˆì„ ë•Œ ì„±ëŠ¥ ì¸¡ì •>" << endl;
 	clock_t start3, end3;
 	double result3;
-	start3 = clock(); //¼öÇà ½Ã°£ ÃøÁ¤ ½ÃÀÛ 
+	start3 = clock(); //ìˆ˜í–‰ ì‹œê°„ ì¸¡ì • ì‹œìž‘ 
 
 	for (int i = 0; i < 10000; i++)
 	{
@@ -202,17 +202,17 @@ int main()
 		L1_func(b);
 	}
 
-	end3 = clock(); //½Ã°£ ÃøÁ¤ ³¡ 
-	result3 = (double)(end3 - start3); //½Ã°£ ÃøÁ¤ °á°ú(ms·Î ±â·ÏµÊ)
+	end3 = clock(); //ì‹œê°„ ì¸¡ì • ë 
+	result3 = (double)(end3 - start3); //ì‹œê°„ ì¸¡ì • ê²°ê³¼(msë¡œ ê¸°ë¡ë¨)
 
-	cout << "L1ÀÇ »óÅÂ" << endl;
+	cout << "L1ì˜ ìƒíƒœ" << endl;
 	for (int i = 0; i < 5; i++)
 	{
 		cout << L1[i] << " ";
 	}
 	cout << endl;
 
-	cout << "\nL2ÀÇ »óÅÂ" << endl;
+	cout << "\nL2ì˜ ìƒíƒœ" << endl;
 	for (int i = 0; i < 20; i++)
 	{
 		if ((i != 0) && (i % 10 == 0))
@@ -221,7 +221,7 @@ int main()
 	}
 	cout << endl;
 
-	cout << "\nL3ÀÇ »óÅÂ" << endl;
+	cout << "\nL3ì˜ ìƒíƒœ" << endl;
 	for (int i = 0; i < 200; i++)
 	{
 		if ((i != 0) && (i % 10 == 0))
@@ -229,21 +229,21 @@ int main()
 		cout << L3[i] << " ";
 	}
 	cout << endl;
-	cout << "\n¿¬»ê ¼öÇà È½¼ö´Â " << num << "È¸" << endl;
-	cout << "Ä³½Ã È÷Æ® À²Àº " << hit / static_cast<double>(num) * 100 << "%" << endl;
-	cout << "Ä³½Ã ¹Ì½º À²Àº " << miss / static_cast<double>(num) * 100 << "%" << endl;
-	cout << "ÃÑ µ¥ÀÌÅÍ Á¢±Ù ½Ã°£Àº " << ((result3) / CLOCKS_PER_SEC) << " ÃÊ" << endl; //ms·Î ±â·ÏµÈ result¸¦ ÃÊ·Î ¹Ù²ã Ãâ·Â
+	cout << "\nì—°ì‚° ìˆ˜í–‰ íšŸìˆ˜ëŠ” " << num << "íšŒ" << endl;
+	cout << "ìºì‹œ ížˆíŠ¸ ìœ¨ì€ " << hit / static_cast<double>(num) * 100 << "%" << endl;
+	cout << "ìºì‹œ ë¯¸ìŠ¤ ìœ¨ì€ " << miss / static_cast<double>(num) * 100 << "%" << endl;
+	cout << "ì´ ë°ì´í„° ì ‘ê·¼ ì‹œê°„ì€ " << ((result3) / CLOCKS_PER_SEC) << " ì´ˆ" << endl; //msë¡œ ê¸°ë¡ëœ resultë¥¼ ì´ˆë¡œ ë°”ê¿” ì¶œë ¥
 
 	system("pause");
 	return 0;
 }
 
-// L1¿¡¼­ ¹Ù·Î HDD·Î °¡´Â ÇÔ¼ö
+// L1ì—ì„œ ë°”ë¡œ HDDë¡œ ê°€ëŠ” í•¨ìˆ˜
 void onlyL1_func(int a)
 {
 	bool tf = false;
 	onlynum++;
-	for (int i = 0; i < 5; i++)//Ã£±â
+	for (int i = 0; i < 5; i++)//ì°¾ê¸°
 	{
 		if (tf)
 			break;
@@ -268,7 +268,7 @@ void onlyHD_func(int a)
 {
 	bool tf = false;
 	onlynum++;
-	for (int i = 0; i < 5000; i++)//Ã£±â
+	for (int i = 0; i < 5000; i++)//ì°¾ê¸°
 	{
 		if (tf)
 			break;
@@ -297,7 +297,7 @@ void onlyL1_store(int a)
 	}
 	if (tf == false)
 	{
-		//¼±ÀÔ¼±Ãâ ÀÌ¿ë
+		//ì„ ìž…ì„ ì¶œ ì´ìš©
 		for (int i = 0; i < 5; i++)
 		{
 			if (onlyL1_InfoList[i] == 1)
@@ -317,7 +317,7 @@ void L1_func(int a)
 {
 	bool tf = false;
 	num++;
-	for (int i = 0; i < 5; i++)//Ã£±â
+	for (int i = 0; i < 5; i++)//ì°¾ê¸°
 	{
 		if (tf)
 			break;
@@ -342,7 +342,7 @@ void L2_func(int a)
 {
 	bool tf = false;
 	num++;
-	for (int i = 0; i < 20; i++)//Ã£±â
+	for (int i = 0; i < 20; i++)//ì°¾ê¸°
 	{
 		if (tf)
 			break;
@@ -364,7 +364,7 @@ void L3_func(int a)
 {
 	bool tf = false;
 	num++;
-	for (int i = 0; i < 200; i++)//Ã£±â
+	for (int i = 0; i < 200; i++)//ì°¾ê¸°
 	{
 		if (tf)
 			break;
@@ -386,7 +386,7 @@ void RAM_func(int a)
 {
 	bool tf = false;
 	num++;
-	for (int i = 0; i < 500; i++)//Ã£±â
+	for (int i = 0; i < 500; i++)//ì°¾ê¸°
 	{
 		if (tf)
 			break;
@@ -407,7 +407,7 @@ void HD_func(int a)
 {
 	bool tf = false;
 	num++;
-	for (int i = 0; i < 5000; i++)//Ã£±â
+	for (int i = 0; i < 5000; i++)//ì°¾ê¸°
 	{
 		if (tf)
 			break;
@@ -436,7 +436,7 @@ void L1_store(int a)
 	}
 	if (tf == false)
 	{
-		//¼±ÀÔ¼±Ãâ ÀÌ¿ë
+		//ì„ ìž…ì„ ì¶œ ì´ìš©
 		for (int i = 0; i < 5; i++)
 		{
 			if (L1_InfoList[i] == 1)
@@ -469,7 +469,7 @@ void L2_store(int a)
 	}
 	if (tf == false)
 	{
-		//¼±ÀÔ¼±Ãâ ÀÌ¿ë
+		//ì„ ìž…ì„ ì¶œ ì´ìš©
 		for (int i = 0; i < 20; i++)
 		{
 			if (L2_InfoList[i] == 1)
@@ -502,7 +502,7 @@ void L3_store(int a)
 	}
 	if (tf == false)
 	{
-		//¼±ÀÔ¼±Ãâ ÀÌ¿ë
+		//ì„ ìž…ì„ ì¶œ ì´ìš©
 		for (int i = 0; i < 200; i++)
 		{
 			if (L3_InfoList[i] == 1)
@@ -535,7 +535,7 @@ void RAM_store(int a)
 	}
 	if (tf == false)
 	{
-		//¼±ÀÔ¼±Ãâ ÀÌ¿ë
+		//ì„ ìž…ì„ ì¶œ ì´ìš©
 		for (int i = 0; i < 500; i++)
 		{
 			if (RAM_InfoList[i] == 1)
